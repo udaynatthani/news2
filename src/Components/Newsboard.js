@@ -9,7 +9,7 @@ const Newsboard = ({category}) => {
   const api = "3a26c1ef92804c1fb54dd62f4eb82f98";
 
   useEffect(() => {
-    const url = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${api}`;
+    const url = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${apiKey}`;
     fetch(url)
       .then(response => response.json())
       .then(data => {
