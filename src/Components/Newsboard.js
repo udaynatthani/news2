@@ -5,10 +5,11 @@ const Newsboard = ({category}) => {
   const [articles, setArticles] = useState([]);
   
   
-  const apiKey = process.env.REACT_APP_API_KEY;  
+  let apiKey = process.env.REACT_APP_API_KEY;  
+  const api = "3a26c1ef92804c1fb54dd62f4eb82f98";
 
   useEffect(() => {
-    const url = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=3a26c1ef92804c1fb54dd62f4eb82f98`;
+    const url = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${api}`;
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -18,7 +19,7 @@ const Newsboard = ({category}) => {
           setArticles([]);
         }
       })
-      .catch(() => setArticles([])); // Handle fetch errors
+      .catch(() => setArticles([])); 
   }, [category, apiKey]);
   
 
